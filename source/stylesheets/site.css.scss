@@ -1,16 +1,63 @@
 @charset "utf-8";
 @import "normalize";
 
-#main {
-  width: 800px;
+.container {
+  margin: 0 2%;
 }
 
-a:visited {
-  color: rgba(31,171,162,0.5)
+.main {
+  width: 66%;
+  float: left;
 }
+.header{
+
+}
+aside {
+  width: 33%;
+  float: right;
+}
+
+a {
+  color: #0068b3;
+}
+a:visited {
+  color: rgba(0,167,179,0.5)
+}
+
+.highlight {
+  overflow: auto;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+code {
+  display: inline-block;
+  background-color: #1b1d1e;
+  color: white;
+}
+
+
+// CSS that came with middleman
 
 body {
-  background: #e8e0d8;
+  background: #d9d9d9;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
 }
@@ -21,16 +68,15 @@ body {
 }
 
 h1 {
-  color: rgba(53,68,87,0.5);
+  color: rgba(217,104,39,0.5);
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.8em;
   font-weight: 400;
   margin: 0;
 }
-.highlight {
-  width: 700px;
+h2 {
+  color: rgba(0,167,179,0.5);
 }
-
 .doc {
   margin: 3em 0;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -73,5 +119,14 @@ h1 {
   }
   to {
     -webkit-transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 100%;
+  }
+  aside {
+    width: 100%
   }
 }
