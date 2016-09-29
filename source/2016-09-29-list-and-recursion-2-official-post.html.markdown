@@ -36,7 +36,7 @@ end
 
 Let me try to explain.
 
-When using `findMaxNumber(list)` with the `list = [1,5,2]`, we call the first function.
+When using `findMaxNumber(list)` with the `list = [0,1,5,2]`, we call the first function.
 
 ```
 iex(1)> findMaxNumber(list)
@@ -45,7 +45,7 @@ iex(1)> findMaxNumber(list)
 Which then matches
 
 ``` elixir
-def findMaxNumber([head|tail]), do: findMaxNumber([head|tail], 0)
+def findMaxNumber([head|tail]), do: findMaxNumber(tail, head)
 ```
 
 In Elixir, and many other languages, a List is simply two nodes, where `head` is the first item in the list, while the tail is the rest of the items.
@@ -53,13 +53,13 @@ In Elixir, and many other languages, a List is simply two nodes, where `head` is
 So when an array of `[1,2,3,4,5]` is broken down, `head = 1` while `tail = [2,3,4,5]`
 
 ``` elixir
-def findMaxNumber([head|tail], 0)
+def findMaxNumber(tail, head)
 ```
 
 ends up calling
 
 ``` elixir
-def findMaxNumber([head|tail], value )
+def findMaxNumber([head|tail], value)
 ```
 
 which looks like the following:
@@ -92,7 +92,7 @@ and 5 would remain the higher value.
 
 Since the last function will be `findMaxNumber([], value)`, it would just return the value!
 
-That's the solution. There's a lot of issues, which I need to get to.
+That's the solution. There's an  issue I need to get to.
 
 ## Refactor Time
 
