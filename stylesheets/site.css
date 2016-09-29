@@ -474,4 +474,7 @@ h2 {
   .title {
     letter-spacing: 12px;
     font-size: 48px;
-    text-align: center; } }
+    text-align: center; }
+
+  .image {
+    width: 300px; } }

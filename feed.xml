@@ -127,7 +127,7 @@ and 5 would remain the higher value.&lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/2016/09/26/starting-my-blog.html"/>
     <id>http://blog.url.com/2016/09/26/starting-my-blog.html</id>
     <published>2016-09-26T17:15:00-04:00</published>
-    <updated>2016-09-29T16:23:53-04:00</updated>
+    <updated>2016-09-29T16:24:57-04:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -136,7 +136,7 @@ get this started. I hope I continue to produce content for it!!&lt;/p&gt;
 
 &lt;p&gt;To good content!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="http://i.giphy.com/n95c3anASCaGY.gif" style="width: 300px"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class="image" src="http://i.giphy.com/n95c3anASCaGY.gif"&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
