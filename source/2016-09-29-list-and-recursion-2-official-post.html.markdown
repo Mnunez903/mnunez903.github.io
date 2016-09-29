@@ -28,7 +28,7 @@ def choose(a, _, true), do: a
 def choose(_, b, false), do: b
 
 def findMaxNumber([], value), do: value
-def findMaxNumber([head|tail]), do: findMaxNumber([head|tail], 0)
+def findMaxNumber([head|tail]), do: findMaxNumber(tail, head)
 def findMaxNumber([head|tail], value ) do
     findMaxNumber(tail, choose(head, value, head>value))
 end
@@ -94,21 +94,9 @@ Since the last function will be `findMaxNumber([], value)`, it would just return
 
 That's the solution. There's a lot of issues, which I need to get to.
 
-First, I noticed I can refactor
+## Refactor Time
 
-``` elixir
-def findMaxNumber([head|tail]), do: findMaxNumber([head|tail], 0)
-```
-
-to
-
-``` elixir
-def findMaxNumber([head|tail]), do: findMaxNumber([head|tail], head)
-```
-
-Where I use the first item of the list for comparison of the next number.
-
-I could also refactor the `choose` functions.
+First, I noticed I can refactor the `choose` functions.
 
 ``` elixir
 def choose(a, _, true), do: a
@@ -127,7 +115,7 @@ I've been able to refactor the function this far...
 def choose(a, b) when a > b, do: a
 def choose(a, b) when a <= b, do: b
 
-def findMaxNumber([head|tail]), do: findMaxNumber([head|tail], head)
+def findMaxNumber([head | tail]), do: findMaxNumber(tail, head)
 def findMaxNumber([head|tail], value ) do
     findMaxNumber(tail, choose(head, value))
 end
