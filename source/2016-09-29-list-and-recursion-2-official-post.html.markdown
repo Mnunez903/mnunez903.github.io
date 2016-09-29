@@ -1,7 +1,7 @@
 ---
-title: List and Recursion -- Ex 2
-date: 2016-09-27 21:15 UTC
-tags: Elixir
+title: list-and-recursion-2-official-post
+date: 2016-09-29 20:18 UTC
+tags:
 ---
 
 # __**Elixir**__
