@@ -5,16 +5,16 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2016-09-27T17:15:00-04:00</updated>
+  <updated>2016-09-29T16:18:00-04:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>List and Recursion -- Ex 2</title>
-    <link rel="alternate" href="http://blog.url.com/2016/09/27/lists-and-recursion-2.html"/>
-    <id>http://blog.url.com/2016/09/27/lists-and-recursion-2.html</id>
-    <published>2016-09-27T17:15:00-04:00</published>
-    <updated>2016-09-28T18:25:54-04:00</updated>
+    <title>list-and-recursion-2-official-post</title>
+    <link rel="alternate" href="http://blog.url.com/2016/09/29/list-and-recursion-2-official-post.html"/>
+    <id>http://blog.url.com/2016/09/29/list-and-recursion-2-official-post.html</id>
+    <published>2016-09-29T16:18:00-04:00</published>
+    <updated>2016-09-29T16:18:44-04:00</updated>
     <author>
       <name>Article Author</name>
     </author>
