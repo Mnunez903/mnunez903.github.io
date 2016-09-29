@@ -21,7 +21,7 @@ a {
   color: #0068b3;
 }
 a:visited {
-  color: rgba(0,167,179,0.5)
+  color: rgba(217,137,39,0.5)
 }
 
 .highlight {
@@ -53,6 +53,16 @@ code {
   color: white;
 }
 
+.title {
+  letter-spacing: 16px;
+  font-size: 72px;
+  text-align: center;
+}
+
+.intro {
+  letter-spacing: 2px;
+  text-align: center;
+}
 
 // CSS that came with middleman
 
@@ -128,5 +138,11 @@ h2 {
   }
   aside {
     width: 100%
+  }
+
+  .title {
+    letter-spacing: 12px;
+    font-size: 48px;
+    text-align: center;
   }
 }
