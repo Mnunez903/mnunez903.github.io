@@ -9,4 +9,4 @@ get this started. I hope I continue to produce content for it!!
 
 To good content!
 
-<img src="http://i.giphy.com/n95c3anASCaGY.gif" style="width: 300px">
+<img class="image" src="http://i.giphy.com/n95c3anASCaGY.gif">
