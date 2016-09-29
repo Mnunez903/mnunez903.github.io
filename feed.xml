@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2016/09/29/list-and-recursion-2-official-post.html"/>
     <id>http://blog.url.com/2016/09/29/list-and-recursion-2-official-post.html</id>
     <published>2016-09-29T16:18:00-04:00</published>
-    <updated>2016-09-29T18:05:42-04:00</updated>
+    <updated>2016-09-29T18:19:13-04:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -49,19 +49,19 @@ and fix up the final solution.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let me try to explain.&lt;/p&gt;
 
-&lt;p&gt;When using &lt;code&gt;findMaxNumber(list)&lt;/code&gt; with the &lt;code&gt;list = [1,5,2]&lt;/code&gt;, we call the first function.&lt;/p&gt;
+&lt;p&gt;When using &lt;code&gt;findMaxNumber(list)&lt;/code&gt; with the &lt;code&gt;list = [0,1,5,2]&lt;/code&gt;, we call the first function.&lt;/p&gt;
 &lt;pre class="highlight plaintext"&gt;&lt;code&gt;iex(1)&amp;gt; findMaxNumber(list)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Which then matches&lt;/p&gt;
-&lt;pre class="highlight elixir"&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;pre class="highlight elixir"&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;In Elixir, and many other languages, a List is simply two nodes, where &lt;code&gt;head&lt;/code&gt; is the first item in the list, while the tail is the rest of the items.&lt;/p&gt;
 
 &lt;p&gt;So when an array of &lt;code&gt;[1,2,3,4,5]&lt;/code&gt; is broken down, &lt;code&gt;head = 1&lt;/code&gt; while &lt;code&gt;tail = [2,3,4,5]&lt;/code&gt;&lt;/p&gt;
-&lt;pre class="highlight elixir"&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;pre class="highlight elixir"&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;ends up calling&lt;/p&gt;
-&lt;pre class="highlight elixir"&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;pre class="highlight elixir"&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;which looks like the following:&lt;/p&gt;
 &lt;pre class="highlight elixir"&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="n"&gt;findMaxNumber&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -90,7 +90,7 @@ and 5 would remain the higher value.&lt;/p&gt;
 
 &lt;p&gt;Since the last function will be &lt;code&gt;findMaxNumber([], value)&lt;/code&gt;, it would just return the value!&lt;/p&gt;
 
-&lt;p&gt;That&amp;rsquo;s the solution. There&amp;rsquo;s a lot of issues, which I need to get to.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s the solution. There&amp;rsquo;s an  issue I need to get to.&lt;/p&gt;
 
 &lt;h2&gt;Refactor Time&lt;/h2&gt;
 

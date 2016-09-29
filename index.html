@@ -55,19 +55,19 @@ and fix up the final solution.</p>
 </code></pre>
 <p>Let me try to explain.</p>
 
-<p>When using <code>findMaxNumber(list)</code> with the <code>list = [1,5,2]</code>, we call the first function.</p>
+<p>When using <code>findMaxNumber(list)</code> with the <code>list = [0,1,5,2]</code>, we call the first function.</p>
 <pre class="highlight plaintext"><code>iex(1)&gt; findMaxNumber(list)
 </code></pre>
 <p>Which then matches</p>
-<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">)</span>
 </code></pre>
 <p>In Elixir, and many other languages, a List is simply two nodes, where <code>head</code> is the first item in the list, while the tail is the rest of the items.</p>
 
 <p>So when an array of <code>[1,2,3,4,5]</code> is broken down, <code>head = 1</code> while <code>tail = [2,3,4,5]</code></p>
-<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">)</span>
 </code></pre>
 <p>ends up calling</p>
-<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">value</span> <span class="p">)</span>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
 </code></pre>
 <p>which looks like the following:</p>
 <pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="m">1</span><span class="o">|</span><span class="p">[</span><span class="m">5</span><span class="p">,</span><span class="m">2</span><span class="p">]],</span> <span class="m">0</span><span class="p">)</span>
@@ -96,7 +96,7 @@ and 5 would remain the higher value.</p>
 
 <p>Since the last function will be <code>findMaxNumber([], value)</code>, it would just return the value!</p>
 
-<p>That&rsquo;s the solution. There&rsquo;s a lot of issues, which I need to get to.</p>
+<p>That&rsquo;s the solution. There&rsquo;s an  issue I need to get to.</p>
 
 <h2>Refactor Time</h2>
 
