@@ -48,7 +48,7 @@ and fix up the final solution.</p>
 <span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="no">false</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">b</span>
 
 <span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([],</span> <span class="n">value</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">value</span>
-<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">)</span>
 <span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">value</span> <span class="p">)</span> <span class="k">do</span>
     <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">choose</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">head</span><span class="o">&gt;</span><span class="n">value</span><span class="p">))</span>
 <span class="k">end</span>
@@ -98,15 +98,9 @@ and 5 would remain the higher value.</p>
 
 <p>That&rsquo;s the solution. There&rsquo;s a lot of issues, which I need to get to.</p>
 
-<p>First, I noticed I can refactor</p>
-<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
-</code></pre>
-<p>to</p>
-<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">head</span><span class="p">)</span>
-</code></pre>
-<p>Where I use the first item of the list for comparison of the next number.</p>
+<h2>Refactor Time</h2>
 
-<p>I could also refactor the <code>choose</code> functions.</p>
+<p>First, I noticed I can refactor the <code>choose</code> functions.</p>
 <pre class="highlight elixir"><code><span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="no">true</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">a</span>
 <span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="no">false</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">b</span>
 </code></pre>
@@ -118,7 +112,7 @@ and 5 would remain the higher value.</p>
 <pre class="highlight elixir"><code><span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">when</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">,</span> <span class="k">do</span><span class="p">:</span> <span class="n">a</span>
 <span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">when</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">,</span> <span class="k">do</span><span class="p">:</span> <span class="n">b</span>
 
-<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">head</span><span class="p">)</span>
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span><span class="p">)</span>
 <span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">value</span> <span class="p">)</span> <span class="k">do</span>
     <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">choose</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
 <span class="k">end</span>
