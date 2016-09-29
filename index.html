@@ -11,40 +11,155 @@
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
   </head>
   <body>
-mnunez903
-<p/>
-    <div id="main" role="main">
-        <h2><a href="/2016/09/27/lists-and-recursion-2.html">lists-and-recursion-2</a> <span>Sep 27</span></h2>
+    <div class="container">
+      <div class="header">
+        <div class=title>
+          _Michael Nunez
+        </div>
+        <div class="intro">
+          <h3>The name's Michael -- and how I can computers.</h3>
+        </div>
+      </div>
+      <div class="main" role="main">
+          <h2><a href="/2016/09/27/lists-and-recursion-2.html">List and Recursion -- Ex 2</a> <span>Sep 27</span></h2>
   <!-- use article.summary(250) if you have Nokogiri available to show just
        the first 250 characters -->
-  <h1>Blog coming soon :)</h1>
+  <h1><strong><strong>Elixir</strong></strong></h1>
 
-  <h2><a href="/2012/01/01/example-article.html">Example Article</a> <span>Jan  1</span></h2>
+<h2>List and Recursions</h2>
+
+<p>I&rsquo;m currently reading the Programming Elixir book by Dave Thomas, which has been
+very good so far! Slowly but surely, I&rsquo;m picking up some Elixir skills. I maybe should start
+from the beginning sometime soon, but now that I&rsquo;m starting to blog in the middle of the book, I&rsquo;ll
+just start with the current problem, and try to fill in any weird Elixir tricks.</p>
+
+<p><em>Exercise: ListAndRecursion-2</em></p>
+
+<blockquote>
+<p>Write a <code>max(list)</code> that returns the element with the maximum value in the list (This
+is slightly trickier than it sounds.)</p>
+</blockquote>
+
+<p>So the solution is what I came up to get it to work. I will talk about some mistakes that I made along the way
+and fix up the final solution.</p>
+
+<p>Here is my solution:</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="no">true</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">a</span>
+<span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="no">false</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([],</span> <span class="n">value</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">value</span>
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">value</span> <span class="p">)</span> <span class="k">do</span>
+    <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">choose</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">head</span><span class="o">&gt;</span><span class="n">value</span><span class="p">))</span>
+<span class="k">end</span>
+</code></pre>
+<p>Let me try to explain.</p>
+
+<p>When using <code>findMaxNumber(list)</code> with the <code>list = [1,5,2]</code>, we call the first function.</p>
+<pre class="highlight plaintext"><code>iex(1)&gt; findMaxNumber(list)
+</code></pre>
+<p>Which then matches</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
+</code></pre>
+<p>In Elixir, and many other languages, a List is simply two nodes, where <code>head</code> is the first item in the list, while the tail is the rest of the items.</p>
+
+<p>So when an array of <code>[1,2,3,4,5]</code> is broken down, <code>head = 1</code> while <code>tail = [2,3,4,5]</code></p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
+</code></pre>
+<p>ends up calling</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">value</span> <span class="p">)</span>
+</code></pre>
+<p>which looks like the following:</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="m">1</span><span class="o">|</span><span class="p">[</span><span class="m">5</span><span class="p">,</span><span class="m">2</span><span class="p">]],</span> <span class="m">0</span><span class="p">)</span>
+</code></pre>
+<p>and calls <code>findMaxNumber</code> recursively while passing in the function <code>choose</code>. <code>choose</code> would return the greater value of the two
+values. It looks like this:</p>
+
+<p><code>findMaxNumber([5,2], choose(1, 0, 1&gt;0))</code></p>
+
+<p>since <code>1&gt;0</code>, the choose function <code>def choose(a, _, true), do: a</code> will match, since it&rsquo;s true.</p>
+
+<p>then calls <code>findMaxNumber</code> again with the new variables:</p>
+
+<p><code>findMaxNumber([5|[2]], 1)</code></p>
+
+<p>This time, <code>head</code> will be greater than <code>value</code>! so the recursive function</p>
+
+<p><code>findMaxNumber([2], choose(5, 1, 5&gt;1))</code> would make <code>choose</code> return true.</p>
+
+<p>the next iteration would look like this: <br/>
+<code>def findMaxNumber([2|[]], 5), do:</code> <br/>
+<code>findMaxNumber([], choose(2, 5, 2&gt;5))</code><br/></p>
+
+<p><code>choose(2, 5, 2&gt;5))</code> would match the false choose function which is <code>def choose(_, b, false), do: b</code>
+and 5 would remain the higher value.</p>
+
+<p>Since the last function will be <code>findMaxNumber([], value)</code>, it would just return the value!</p>
+
+<p>That&rsquo;s the solution. There&rsquo;s a lot of issues, which I need to get to.</p>
+
+<p>First, I noticed I can refactor</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="m">0</span><span class="p">)</span>
+</code></pre>
+<p>to</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">head</span><span class="p">)</span>
+</code></pre>
+<p>Where I use the first item of the list for comparison of the next number.</p>
+
+<p>I could also refactor the <code>choose</code> functions.</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="no">true</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">a</span>
+<span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="no">false</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">b</span>
+</code></pre>
+<p>can be</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">when</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">,</span> <span class="k">do</span><span class="p">:</span> <span class="n">a</span>
+<span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">when</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">,</span> <span class="k">do</span><span class="p">:</span> <span class="n">b</span>
+</code></pre>
+<p>I&rsquo;ve been able to refactor the function this far&hellip;</p>
+<pre class="highlight elixir"><code><span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">when</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">,</span> <span class="k">do</span><span class="p">:</span> <span class="n">a</span>
+<span class="k">def</span> <span class="n">choose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">when</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">,</span> <span class="k">do</span><span class="p">:</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">]),</span> <span class="k">do</span><span class="p">:</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">head</span><span class="p">)</span>
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([</span><span class="n">head</span><span class="o">|</span><span class="n">tail</span><span class="p">],</span> <span class="n">value</span> <span class="p">)</span> <span class="k">do</span>
+    <span class="n">findMaxNumber</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">choose</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="n">findMaxNumber</span><span class="p">([],</span> <span class="n">value</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">value</span>
+</code></pre>
+<p>Definitely fun stuff!</p>
+
+  <h2><a href="/2016/09/26/starting-my-blog.html">My blog, and the beginning!</a> <span>Sep 26</span></h2>
   <!-- use article.summary(250) if you have Nokogiri available to show just
        the first 250 characters -->
-  <p>This is an example article. You probably want to delete it and write your own articles!</p>
+  <p>This is just me starting my blog, and figuring out how to do this. It took me a lot of time and energy to even
+get this started. I hope I continue to produce content for it!!</p>
+
+<p>To good content!</p>
+
+<p><img src="http://i.giphy.com/n95c3anASCaGY.gif" alt="cheers!" /></p>
 
 
+
+      </div>
+
+      <aside>
+        <h2>Recent Articles</h2>
+        <ol>
+            <li><a href="/2016/09/27/lists-and-recursion-2.html">List and Recursion -- Ex 2</a> <span>Sep 27</span></li>
+            <li><a href="/2016/09/26/starting-my-blog.html">My blog, and the beginning!</a> <span>Sep 26</span></li>
+        </ol>
+
+        <h2>Tags</h2>
+        <ol>
+            <li><a href="/tags/beginning.html">Beginning (1)</a></li>
+            <li><a href="/tags/elixir.html">Elixir (1)</a></li>
+        </ol>
+
+        <h2>By Year</h2>
+        <ol>
+            <li><a href="/2016.html">2016 (2)</a></li>
+        </ol>
+      </aside>
 
     </div>
-
-    <aside>
-      <h2>Recent Articles</h2>
-      <ol>
-          <li><a href="/2016/09/27/lists-and-recursion-2.html">lists-and-recursion-2</a> <span>Sep 27</span></li>
-          <li><a href="/2012/01/01/example-article.html">Example Article</a> <span>Jan  1</span></li>
-      </ol>
-
-      <h2>Tags</h2>
-      <ol>
-          <li><a href="/tags/example.html">example (1)</a></li>
-      </ol>
-
-      <h2>By Year</h2>
-      <ol>
-          <li><a href="/2016.html">2016 (1)</a></li>
-          <li><a href="/2012.html">2012 (1)</a></li>
-      </ol>
-    </aside>
   </body>
 </html>
