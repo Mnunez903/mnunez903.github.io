@@ -464,7 +464,7 @@ h2 {
     opacity: 1; }
   to {
     -webkit-transform: scale(1); } }
-@media (max-width: 768px) {
+@media (max-width: 790px) {
   .main {
     width: 100%; }
 
