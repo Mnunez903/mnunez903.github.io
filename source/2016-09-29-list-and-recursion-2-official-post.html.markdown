@@ -6,8 +6,6 @@ tags: Elixir
 
 # __**Elixir**__
 
-## List and Recursions
-
 I'm currently reading the Programming Elixir book by Dave Thomas, which has been
 very good so far! Slowly but surely, I'm picking up some Elixir skills. I maybe should start
 from the beginning sometime soon, but now that I'm starting to blog in the middle of the book, I'll
