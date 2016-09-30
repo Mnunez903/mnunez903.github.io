@@ -1,5 +1,5 @@
 ---
-title: list-and-recursion-2-official-post
+title: List and Recursion 2
 date: 2016-09-29 20:18 UTC
 tags: Elixir
 ---
