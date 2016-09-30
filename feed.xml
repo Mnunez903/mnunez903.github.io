@@ -14,13 +14,11 @@
     <link rel="alternate" href="http://blog.url.com/2016/09/29/list-and-recursion-2-official-post.html"/>
     <id>http://blog.url.com/2016/09/29/list-and-recursion-2-official-post.html</id>
     <published>2016-09-29T16:18:00-04:00</published>
-    <updated>2016-09-30T10:28:34-04:00</updated>
+    <updated>2016-09-30T10:29:50-04:00</updated>
     <author>
       <name>Article Author</name>
     </author>
     <content type="html">&lt;h1&gt;&lt;strong&gt;&lt;strong&gt;Elixir&lt;/strong&gt;&lt;/strong&gt;&lt;/h1&gt;
-
-&lt;h2&gt;List and Recursions&lt;/h2&gt;
 
 &lt;p&gt;I&amp;rsquo;m currently reading the Programming Elixir book by Dave Thomas, which has been
 very good so far! Slowly but surely, I&amp;rsquo;m picking up some Elixir skills. I maybe should start
