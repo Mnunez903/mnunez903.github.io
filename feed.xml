@@ -5,10 +5,66 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2016-09-29T16:18:00-04:00</updated>
+  <updated>2016-11-17T11:56:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>LANLEY</title>
+    <link rel="alternate" href="http://blog.url.com/2016/11/17/lanley.html"/>
+    <id>http://blog.url.com/2016/11/17/lanley.html</id>
+    <published>2016-11-17T11:56:00-05:00</published>
+    <updated>2016-11-17T14:15:38-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1&gt;LANLEY&lt;/h1&gt;
+
+&lt;p&gt;I recently attended a Q&amp;amp;A Session with Martin Fowler. Mr. Fowler is known for many of his tech books, including &lt;strong&gt;Refactoring&lt;/strong&gt;, and &lt;strong&gt;Domain Specific Languages&lt;/strong&gt;. In the talk, there was a piece on being interested in multiple languages. Someone who may be a Front-End developer should be interested in Back-End related work and vice versa. He said:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A good colleague of mine mentioned &amp;ldquo;Learn a New Language Every Year.&amp;rdquo; Every developer should strive to learn at least one new language every year. When you do, you can expand your thinking capabilities when solving complex problems&amp;hellip;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I wanted to run through my years in this entry. I definitely have some catching up to do!&lt;/p&gt;
+
+&lt;h2&gt;Before my Career &amp;ndash; College&lt;/h2&gt;
+
+&lt;p&gt;In college, I was a really big &lt;code&gt;C#&lt;/code&gt; individual. My final project was in &lt;code&gt;C#&lt;/code&gt;, and thought it was the best programming language ever! I definitely enjoyed the concept of OOP, and I wanted to expand on that programming model. It wasn&amp;rsquo;t until a year later where I landed my first job.&lt;/p&gt;
+
+&lt;h2&gt;Career&lt;/h2&gt;
+
+&lt;h3&gt;2011&lt;/h3&gt;
+
+&lt;p&gt;I worked at a consulting company where their clients were predominately finance companies. Got a chance to work at an Investment Bank in Stamford, CT. This position was all &lt;code&gt;Java&lt;/code&gt;. Once I was collecting a paycheck, I had completely forgot about &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;2012&lt;/h3&gt;
+
+&lt;p&gt;Still at the same client, but was heavily interested in &lt;code&gt;Test Driven Development&lt;/code&gt;. My boss said while testing is useful, it eats up too much time, and he didn&amp;rsquo;t want to do it in our project. He managed to find a team that would work with me within the company where I was able to write some tests! The team used &lt;code&gt;TestNG&lt;/code&gt;. It had a difficult learning curve for me, but I got over it. Testing was fun, but it wasn&amp;rsquo;t &amp;lsquo;til next year where I got more familiar with &lt;code&gt;TDD&lt;/code&gt;. This isn&amp;rsquo;t a language learning per se, but it was a new (testing) framework.&lt;/p&gt;
+
+&lt;h3&gt;2013&lt;/h3&gt;
+
+&lt;p&gt;I joined another consulting company (pattern, much?) that was big on &lt;code&gt;TDD&lt;/code&gt;, The Agile Methodology, and Pairing. Here, I had to pick up &lt;code&gt;Ruby&lt;/code&gt;, &lt;code&gt;Rails&lt;/code&gt;, and learn a little &lt;code&gt;Twitter Bootstrap.&lt;/code&gt; I had a lot of fun test driving features with a pair. It was really comfortable to be able to learn good practices, and having someone help get rid of bad habits was also a plus! I definitely enjoyed developing in &lt;code&gt;Ruby&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;2014&lt;/h3&gt;
+
+&lt;p&gt;Sadly enough, 2014 was the same as 2013. Each client I worked on was pretty much a &lt;code&gt;Rails&lt;/code&gt; project. I did get better throughout time with &lt;code&gt;TDD&lt;/code&gt; which is always helpful.&lt;/p&gt;
+
+&lt;h3&gt;2015&lt;/h3&gt;
+
+&lt;p&gt;Here&amp;rsquo;s where I was forced to switch it up! &lt;code&gt;React&lt;/code&gt; was a hot commodity, so I had dived head first into &lt;code&gt;Javascript&lt;/code&gt;. That felt difficult, but definitely got over it relatively quick. That includes testing in &lt;code&gt;React&lt;/code&gt; using &lt;code&gt;Jasmine&lt;/code&gt;. It was a ton of fun! I continue to be working on &lt;code&gt;React&lt;/code&gt; at the moment!&lt;/p&gt;
+
+&lt;h3&gt;2016&lt;/h3&gt;
+
+&lt;p&gt;As of right now, I&amp;rsquo;m still at a place that uses &lt;code&gt;React&lt;/code&gt;. On my own, I&amp;rsquo;ve been trying to learn &lt;code&gt;Elixir&lt;/code&gt;. &lt;code&gt;Elixir&lt;/code&gt; is part of the reason I started this blog. I look forward to what I will be doing with &lt;code&gt;Elixir&lt;/code&gt;, but the end of the year is coming up soon!!&lt;/p&gt;
+
+&lt;p&gt;According to the quote above, I may have missed 2 languages (2012 and 2014). What&amp;rsquo;s next for 2017? I don&amp;rsquo;t know. Any new Languages? Maybe a new framework? We&amp;rsquo;ll see! One thing is for sure:&lt;/p&gt;
+
+&lt;h3&gt;Learn a New Language Every Year!&lt;/h3&gt;
+
+&lt;p&gt;&lt;img class="image" alt="giphy genius homer simpson"src="http://i.giphy.com/eMu0803X2zkWY.gif"&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>List and Recursion 2</title>
     <link rel="alternate" href="http://blog.url.com/2016/09/29/list-and-recursion-2-official-post.html"/>
