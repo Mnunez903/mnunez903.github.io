@@ -1,0 +1,43 @@
+---
+title: Learn a New Language Every Year
+date: 2016-11-17 16:56 UTC
+tags: Programming Languages, Learning
+---
+
+# LANLEY
+
+I recently attended a Q&A Session with Martin Fowler. Mr. Fowler is known for many of his tech books, including **Refactoring**, and **Domain Specific Languages**. In the talk, there was a piece on being interested in multiple languages. Someone who may be a Front-End developer should be interested in Back-End related work and vice versa. He said:
+
+> A good colleague of mine mentioned "Learn a New Language Every Year." Every developer should strive to learn at least one new language every year. When you do, you can expand your thinking capabilities when solving complex problems...
+
+I wanted to run through my years in this entry. I definitely have some catching up to do!
+
+## Before my Career -- College
+
+In college, I was a really big ___C#___ individual. My final project was in ___C#___, and thought it was the best programming language ever! I definitely enjoyed the concept of OOP, and I wanted to expand on that programming model. It wasn't until a year later where I landed my first job.
+
+## Career
+
+### 2011
+I worked at a consulting company where their clients were predominately finance companies. Got a chance to work at an Investment Bank in Stamford, CT. This position was all ___Java___. Once I was collecting a paycheck, I had completely forgot about ___C#___.
+
+### 2012
+Still at the same client, but was heavily interested in ___Test Driven Development___. My boss said while testing is useful, it eats up too much time, and he didn't want to do it in our project. He managed to find a team that would work with me within the company where I was able to write some tests! The team used ___TestNG___. It had a difficult learning curve for me, but I got over it. Testing was fun, but it wasn't 'til next year where I got more familiar with ___TDD___. This isn't a language learning per se, but it was a new (testing) framework.
+
+### 2013
+I joined another consulting company (pattern, much?) that was big on ___TDD___, The Agile Methodology, and Pairing. Here, I had to pick up ___Ruby___, ___Rails___, and learn a little ___Twitter Bootstrap.___ I had a lot of fun test driving features with a pair. It was really comfortable to be able to learn good practices, and having someone help get rid of bad habits was also a plus! I definitely enjoyed developing in ___Ruby___.
+
+### 2014
+Sadly enough, 2014 was the same as 2013. Each client I worked on was pretty much a ___Rails___ project. I did get better throughout time with ___TDD___ which is always helpful.
+
+### 2015
+Here's where I was forced to switch it up! ___React___ was a hot commodity, so I had dived head first into ___Javascript___. That felt difficult, but definitely got over it relatively quick. That includes testing in ___React___ using ___Jasmine___. It was a ton of fun! I continue to be working on ___React___ at the moment!
+
+### 2016
+As of right now, I'm still at a place that uses ___React___. On my own, I've been trying to learn ___Elixir___. ___Elixir___ is part of the reason I started this blog. I look forward to what I will be doing with ___Elixir___, but the end of the year is coming up soon!!
+
+According to the quote above, I may have missed 2 languages (2012 and 2014). What's next for 2017? I don't know. Any new Languages? Maybe a new framework? We'll see! One thing is for sure:
+
+### Learn a New Language Every Year!
+
+<img class="image" alt="giphy genius homer simpson"src="http://i.giphy.com/eMu0803X2zkWY.gif">
