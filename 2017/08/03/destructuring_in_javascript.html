@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/stylesheets/highlighting.css" rel="stylesheet" />
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+
+    <title>_Michael Nunez - Destructuring in Javascript</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class=title>
+          _Michael Nunez
+        </div>
+        <div class="intro">
+          <h3>The name's Michael -- computers and consulting is my thing.</h3>
+        </div>
+      </div>
+      <div class="main" role="main">
+        <h1>Destructuring Javascript</h1>
+
+<p>Hey! I&rsquo;ve been doing some good ol es6/babel related Javascript, and destructuring has been something I seem to always
+forget! This entry will simply be a refresher for me (and hopefully, for you too) on how to destruct javascript objects!</p>
+
+<p>Let&rsquo;s start with some object I&rsquo;m going to use for the rest of this example:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">human</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'bobby'</span><span class="p">,</span>
+  <span class="na">head</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">eyes</span><span class="p">:</span> <span class="s1">'brown'</span><span class="p">,</span>
+    <span class="na">ears</span><span class="p">:</span> <span class="s1">'normal'</span><span class="p">,</span>
+    <span class="na">mouth</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">color</span><span class="p">:</span> <span class="s1">'red'</span><span class="p">,</span>
+      <span class="na">voice</span><span class="p">:</span> <span class="s1">'loud'</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">height_in_inches</span><span class="p">:</span> <span class="s1">'70'</span><span class="p">,</span>
+  <span class="na">two_thumbs</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre>
+<h2>Getting regular variables</h2>
+
+<p>Boom. You want to be able to grab data from an object. Rather than:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">eyes</span> <span class="o">=</span> <span class="nx">human</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">eyes</span><span class="p">;</span>
+</code></pre>
+<p>You can destruct the variable by doing the following:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">eyes</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+</code></pre>
+<p>Pretty neat, considering you don&rsquo;t have to type <code>eyes</code> twice when you want the variable name to be the same. SWEET!!</p>
+
+<h2>Renaming a constant variable while destructuring</h2>
+
+<p>Let&rsquo;s suppose you want to rename a value without changing the results from an API. Note that this API uses snake case
+rather than camel case. You would have to do the following:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">heightInInches</span> <span class="o">=</span> <span class="nx">human</span><span class="p">.</span><span class="nx">height_in_inches</span><span class="p">;</span>
+</code></pre>
+<p>With destructuring javascript, renaming a variable is a breeze! Here&rsquo;s how to do it:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nl">height_in_inches</span><span class="p">:</span> <span class="nx">heightInInches</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">;</span>
+</code></pre>
+<p><code>heightInInches</code> will be the name of variable.</p>
+
+<h2>Destructuring multiple variables at the same time</h2>
+
+<p>Even if we wanted to destructure variables, you&rsquo;d have to make multiple variable declarations, such as:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">head</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">;</span>
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">eyes</span><span class="p">,</span> <span class="nx">ears</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">head</span><span class="p">;</span>
+</code></pre>
+<p>Don&rsquo;t be a lame, you can do that all in one shot! Here&rsquo;s how:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">head</span><span class="p">,</span> <span class="nx">head</span><span class="p">:</span> <span class="p">{</span> <span class="nx">eyes</span><span class="p">,</span> <span class="nx">ears</span> <span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">;</span>
+</code></pre>
+<p>When you console.log:</p>
+<pre class="highlight javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//=&gt; bobby</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span> <span class="c1">//=&gt; { eyes: 'brown', ears: 'normal', mouth: { color: 'red', voice: 'loud'} }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">eyes</span><span class="p">);</span> <span class="c1">//=&gt; brown</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ears</span><span class="p">);</span> <span class="c1">//=&gt; normal</span>
+</code></pre>
+<p>Now, you&rsquo;ve learned how to destruct, rename while destructuring, and grabbing multiple variables within a destructured
+variable!</p>
+
+<p><img src="https://media.giphy.com/media/l3vR6jBTvJyYrr3Uc/giphy.gif" alt="Go be Destruct-(Wo)Man!" /></p>
+
+      </div>
+
+      <aside>
+        <h2>Recent Articles</h2>
+        <ol>
+            <li><a href="/2017/08/03/destructuring_in_javascript.html">Destructuring in Javascript</a> <span>Aug  3</span></li>
+            <li><a href="/2017/01/06/tail-call-optimization-in-elixir.html">tail-call-optimization-in-elixir</a> <span>Jan  6</span></li>
+            <li><a href="/2016/11/17/lanley.html">Learn a New Language Every Year</a> <span>Nov 17</span></li>
+            <li><a href="/2016/09/29/list-and-recursion-2-official-post.html">List and Recursion 2</a> <span>Sep 29</span></li>
+            <li><a href="/2016/09/26/starting-my-blog.html">My blog, and the beginning!</a> <span>Sep 26</span></li>
+        </ol>
+
+        <h2>Tags</h2>
+        <ol>
+            <li><a href="/tags/beginning.html">Beginning (1)</a></li>
+            <li><a href="/tags/elixir.html">Elixir (1)</a></li>
+            <li><a href="/tags/programming-languages.html">Programming Languages (1)</a></li>
+            <li><a href="/tags/learning.html">Learning (1)</a></li>
+            <li><a href="/tags/javascript.html">Javascript (1)</a></li>
+        </ol>
+
+        <h2>By Year</h2>
+        <ol>
+            <li><a href="/2017.html">2017 (2)</a></li>
+            <li><a href="/2016.html">2016 (3)</a></li>
+        </ol>
+      </aside>
+
+    </div>
+  </body>
+</html>
