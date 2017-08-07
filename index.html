@@ -24,10 +24,8 @@
           <h2><a href="/2017/08/03/destructuring_in_javascript.html">Destructuring in Javascript</a> <span>Aug  3</span></h2>
   <!-- use article.summary(250) if you have Nokogiri available to show just
        the first 250 characters -->
-  <h1>Destructuring Javascript</h1>
-
-<p>Hey! I&rsquo;ve been doing some good ol es6/babel related Javascript, and destructuring has been something I seem to always
-forget! This entry will simply be a refresher for me (and hopefully, for you too) on how to destruct javascript objects!</p>
+  <p>Hey! I&rsquo;ve been doing some good ol es6/babel related Javascript, and destructuring has been something I seem to always
+forget! This entry will simply be a refresher for me (and hopefully, for you too) on how to destructure javascript objects!</p>
 
 <p>Let&rsquo;s start with some object I&rsquo;m going to use for the rest of this example:</p>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">human</span> <span class="o">=</span> <span class="p">{</span>
@@ -44,12 +42,12 @@ forget! This entry will simply be a refresher for me (and hopefully, for you too
   <span class="na">two_thumbs</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre>
-<h2>Getting regular variables</h2>
+<h2>Destructuring regular variables</h2>
 
 <p>Boom. You want to be able to grab data from an object. Rather than:</p>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">eyes</span> <span class="o">=</span> <span class="nx">human</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">eyes</span><span class="p">;</span>
 </code></pre>
-<p>You can destruct the variable by doing the following:</p>
+<p>You can destructure the variable by doing the following:</p>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">eyes</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
 </code></pre>
 <p>Pretty neat, considering you don&rsquo;t have to type <code>eyes</code> twice when you want the variable name to be the same. SWEET!!</p>
@@ -65,14 +63,18 @@ rather than camel case. You would have to do the following:</p>
 </code></pre>
 <p><code>heightInInches</code> will be the name of variable.</p>
 
-<h2>Destructuring multiple variables at the same time</h2>
+<h2>Extracting nested data within an object</h2>
 
-<p>Even if we wanted to destructure variables, you&rsquo;d have to make multiple variable declarations, such as:</p>
+<p>What if you need to extract multiple variables from nested data? for example, you might want the human&rsquo;s <code>head</code>, as well as the <code>eyes</code> and <code>ears</code> from within the <code>head</code>. Naively, you might try a two step approach, first getting the <code>head</code> from the <code>human</code>, and then the data within it:</p>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">head</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">;</span>
 <span class="kr">const</span> <span class="p">{</span> <span class="nx">eyes</span><span class="p">,</span> <span class="nx">ears</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">head</span><span class="p">;</span>
 </code></pre>
-<p>Don&rsquo;t be a lame, you can do that all in one shot! Here&rsquo;s how:</p>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">head</span><span class="p">,</span> <span class="nx">head</span><span class="p">:</span> <span class="p">{</span> <span class="nx">eyes</span><span class="p">,</span> <span class="nx">ears</span> <span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">;</span>
+<p>But wait! You can do that all in one shot! Here&rsquo;s how:</p>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="p">,</span>
+    <span class="nx">head</span><span class="p">,</span>
+    <span class="nx">head</span><span class="p">:</span> <span class="p">{</span> <span class="nx">eyes</span><span class="p">,</span> <span class="nx">ears</span> <span class="p">}</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">human</span><span class="p">;</span>
 </code></pre>
 <p>When you console.log:</p>
 <pre class="highlight javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//=&gt; bobby</span>
@@ -80,10 +82,8 @@ rather than camel case. You would have to do the following:</p>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">eyes</span><span class="p">);</span> <span class="c1">//=&gt; brown</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ears</span><span class="p">);</span> <span class="c1">//=&gt; normal</span>
 </code></pre>
-<p>Now, you&rsquo;ve learned how to destruct, rename while destructuring, and grabbing multiple variables within a destructured
-variable!</p>
-
-<p><img src="https://media.giphy.com/media/l3vR6jBTvJyYrr3Uc/giphy.gif" alt="Go be Destruct-(Wo)Man!" /></p>
+<p>Now, you&rsquo;ve learned how to destructure, rename while destructuring, and extracting nested data within an object!
+<img src="https://media.giphy.com/media/l3vR6jBTvJyYrr3Uc/giphy.gif" alt="Go be Destruct-(Wo)Man!" /></p>
 
   <h2><a href="/2017/01/06/tail-call-optimization-in-elixir.html">tail-call-optimization-in-elixir</a> <span>Jan  6</span></h2>
   <!-- use article.summary(250) if you have Nokogiri available to show just
