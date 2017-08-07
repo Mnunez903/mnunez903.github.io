@@ -10,11 +10,11 @@
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>Destructuring in Javascript</title>
+    <title>Destructuring Objects in Javascript</title>
     <link rel="alternate" href="http://blog.url.com/2017/08/03/destructuring_in_javascript.html"/>
     <id>http://blog.url.com/2017/08/03/destructuring_in_javascript.html</id>
     <published>2017-08-03T15:21:00-04:00</published>
-    <updated>2017-08-07T11:20:16-04:00</updated>
+    <updated>2017-08-07T19:32:31-04:00</updated>
     <author>
       <name>Article Author</name>
     </author>
