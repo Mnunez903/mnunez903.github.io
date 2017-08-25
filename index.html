@@ -21,7 +21,91 @@
         </div>
       </div>
       <div class="main" role="main">
-          <h2><a href="/2017/08/03/destructuring_in_javascript.html">Destructuring Objects in Javascript</a> <span>Aug  3</span></h2>
+          <h2><a href="/2017/08/25/test-coverage.html">Test Coverage - going from bad to good, and knowing when to do it</a> <span>Aug 25</span></h2>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+       the first 250 characters -->
+  <h1>Test Coverage - going from bad to good, and knowing when to do it</h1>
+
+<p>Having production code with good test coverage is very beneficial to a development team.
+Broad coverage can catch bugs and unintended behavior from entering the codebase, and everyone can sleep better at night, but when a code base doesn&rsquo;t have much coverage (or any at all), it can be really difficult to introduce it.
+We&rsquo;ll discuss when you should introduce or increase test coverage, and go in depth into the ways in which it&rsquo;s beneficial for you and your team.</p>
+
+<h2>Coverage for legacy codebases?</h2>
+
+<p>As a huge believer in tests, I make a concerted effort to add coverage to every project I work on.
+Realistically though, there are times where tests are just not that beneficial.
+For instance, when dealing with a legacy codebase (an internal API that is rarely updated), adding coverage offers diminished returns.
+If your legacy codebase works reliably in production with little to no regression, adding tests retroactively may simply work to verify what is already validated in production.
+Often, the legacy parts of an application serve as dependencies, so I suggest focusing your efforts toward testing the new API leveraging the old code.</p>
+
+<h2>Still unsure of the benefits to coverage?</h2>
+
+<p>Here are some benefits to increased test coverage:</p>
+
+<ul>
+<li>Ensure your code works as expected</li>
+<li>Deploy code with greater confidence</li>
+<li>Decrease the likelihood of 1am phone calls
+#### <strong>Ensure your code works as expected</strong>
+Adding tests encourages you to conceptualize how you want your program to behave and account for edge cases.</li>
+</ul>
+
+<h4><strong>Deploy code with greater confidence</strong></h4>
+
+<p>The greater your coverage, the more confident you can be that new features did not introduce regressions.
+In the event that deployment introduces a bug, tests can serve as documentation to both track down the bug and squash it.</p>
+
+<h4><strong>Decrease the likelihood of 1am phone calls</strong></h4>
+
+<p>Pager duty is not fun. Seriously.
+Nor is it fun for the person calling you.
+Increased coverage will help prevent bugs that have the habit of waking you up in the middle of the night.
+Future you would appreciate that.</p>
+
+<h2>Okay, I&rsquo;m sold! How do I start adding coverage?</h2>
+
+<p>Once your team is on board with increasing test coverage, I suggest first writing test for new feature work.
+That way, new changes to the codebase are covered, and good habits will start to form amongst team members (and in turn, new hires).</p>
+
+<p>Your next priority should be adding coverage for existing code (non-legacy), but this must be done much more carefully.
+There are generally two ways to go about it:
+- Scrap the existing implementation, one discrete module at a time, and test drive the recreation of its code
+- Add tests to validate the existing code.</p>
+
+<h4><strong>Scrap &amp; test drive</strong></h4>
+
+<p>Pros:
+- Scrapping and test driving will likely result in better design and code clarity.
+- The tests will serve as a form of documentation for your teammates and future self.</p>
+
+<p>Cons:
+- Throwing out existing code can result in you missing a particular business case that wasn&rsquo;t clear within the implementation.</p>
+
+<h4><strong>Add coverage to pre-existing code</strong></h4>
+
+<p>Pros:
+- Generally a quicker process than scrapping and test driving
+- Coverage of an existing API can make refactoring easier</p>
+
+<p>Cons:
+- May work to simply validate poor design.</p>
+
+<h2>Side effects</h2>
+
+<p>Testing certainly has a learning curve, so your team may spend up-front time figuring out how to best test new and old code.
+This can result in a decrease in sprint velocity, and may require more complexity points in story estimation.
+That said, adding tests to new features will reduce bugs, and in turn, decrease the cost of having to squash them later,
+and adding coverage to existing code will pay down technical debt that can prove crippling if left unpaid.</p>
+
+<h2>Summary</h2>
+
+<p>To wrap up, increasing test coverage will improve design, increase team confidence and cohesion, and decrease the stress associated with regression.</p>
+
+<p>Happy writing test coverage!!</p>
+
+<p><img src="https://img.devrant.io/devrant/rant/r_536209_rcy6p.gif" alt="Writing code like a GOD" /></p>
+
+  <h2><a href="/2017/08/03/destructuring_in_javascript.html">Destructuring Objects in Javascript</a> <span>Aug  3</span></h2>
   <!-- use article.summary(250) if you have Nokogiri available to show just
        the first 250 characters -->
   <p>Hey! I&rsquo;ve been doing some good ol es6/babel related Javascript, and destructuring has been something I seem to always
@@ -379,6 +463,7 @@ and 5 would remain the higher value.</p>
       <aside>
         <h2>Recent Articles</h2>
         <ol>
+            <li><a href="/2017/08/25/test-coverage.html">Test Coverage - going from bad to good, and knowing when to do it</a> <span>Aug 25</span></li>
             <li><a href="/2017/08/03/destructuring_in_javascript.html">Destructuring Objects in Javascript</a> <span>Aug  3</span></li>
             <li><a href="/2017/01/06/tail-call-optimization-in-elixir.html">tail-call-optimization-in-elixir</a> <span>Jan  6</span></li>
             <li><a href="/2016/11/17/lanley.html">Learn a New Language Every Year</a> <span>Nov 17</span></li>
@@ -393,11 +478,12 @@ and 5 would remain the higher value.</p>
             <li><a href="/tags/programming-languages.html">Programming Languages (1)</a></li>
             <li><a href="/tags/learning.html">Learning (1)</a></li>
             <li><a href="/tags/javascript.html">Javascript (1)</a></li>
+            <li><a href="/tags/test-coverage.html">Test-Coverage (1)</a></li>
         </ol>
 
         <h2>By Year</h2>
         <ol>
-            <li><a href="/2017.html">2017 (2)</a></li>
+            <li><a href="/2017.html">2017 (3)</a></li>
             <li><a href="/2016.html">2016 (3)</a></li>
         </ol>
       </aside>
